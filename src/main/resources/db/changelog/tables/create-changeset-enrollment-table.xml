@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="008" author="frolov">
+        <createTable tableName="enrollment">
+            <column name="id" type="integer" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="student_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="course_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="enrollment" baseColumnNames="student_id"
+                                 constraintName="enrollment_student_id_fkey" referencedTableName="student"
+                                 referencedColumnNames="id" onDelete="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableName="enrollment" baseColumnNames="course_id"
+                                 constraintName="enrollment_course_id_fkey" referencedTableName="course"
+                                 referencedColumnNames="id" onDelete="CASCADE"/>
+
+    </changeSet>
+</databaseChangeLog>
