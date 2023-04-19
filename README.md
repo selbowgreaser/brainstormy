@@ -7,4 +7,4 @@ platform is currently in development.
 
 ### Database Schema
 
-![Database Schema](./docs/images/database_schema.jpg "Database Schema")
+![Database Schema](./docs/images/database_schema.png "Database Schema")
