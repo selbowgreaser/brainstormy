@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="003" author="frolov">
+        <createTable tableName="student">
+            <column name="user_id" type="integer">
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="group_id" type="integer"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="student" baseColumnNames="user_id"
+                                 constraintName="student_user_id_fkey" referencedTableName="user"
+                                 referencedColumnNames="id" onDelete="CASCADE"/>
+        <addForeignKeyConstraint baseTableName="student" baseColumnNames="group_id"
+                                 constraintName="student_group_id_fkey" referencedTableName="group"
+                                 referencedColumnNames="id" onDelete="SET NULL"/>
+    </changeSet>
+</databaseChangeLog>

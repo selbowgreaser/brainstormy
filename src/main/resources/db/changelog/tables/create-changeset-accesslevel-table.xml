@@ -4,15 +4,16 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
-    <changeSet id="009" author="frolov">
-        <createTable tableName="group">
+    <changeSet id="004" author="frolov">
+        <createTable tableName="accesslevel">
             <column name="id" type="integer" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
 
-            <column name="name" type="varchar(32)">
+            <column name="name" type="varchar">
                 <constraints nullable="false"/>
             </column>
         </createTable>
+
     </changeSet>
 </databaseChangeLog>

@@ -4,22 +4,25 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
-    <include file="classpath:db/changelog/tables/user/create-changeset-admin-table.xml"
-             relativeToChangelogFile="false"/>
-    <include file="classpath:db/changelog/tables/user/create-changeset-student-table.xml"
-             relativeToChangelogFile="false"/>
-    <include file="classpath:db/changelog/tables/user/create-changeset-teacher-table.xml"
-             relativeToChangelogFile="false"/>
-    <include file="classpath:db/changelog/tables/create-changeset-access-table.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:db/changelog/tables/create-changeset-authority-table.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:db/changelog/tables/create-changeset-authorship-table.xml"
-             relativeToChangelogFile="false"/>
-    <include file="classpath:db/changelog/tables/create-changeset-course-table.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:db/changelog/tables/create-changeset-enrollment-table.xml"
-             relativeToChangelogFile="false"/>
     <include file="classpath:db/changelog/tables/create-changeset-group-table.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:db/changelog/tables/create-changeset-course-table.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:db/changelog/tables/create-changeset-accesslevel-table.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:db/changelog/tables/create-changeset-user-table.xml"
+             relativeToChangelogFile="false"/>
+    <include file="classpath:db/changelog/tables/create-changeset-admin-table.xml"
+             relativeToChangelogFile="false"/>
+    <include file="classpath:db/changelog/tables/create-changeset-student-table.xml"
+             relativeToChangelogFile="false"/>
+    <include file="classpath:db/changelog/tables/create-changeset-teacher-table.xml"
+             relativeToChangelogFile="false"/>
+    <include file="classpath:db/changelog/tables/create-changeset-authority-table.xml" relativeToChangelogFile="false"/>
     <include file="classpath:db/changelog/tables/create-changeset-lesson-table.xml" relativeToChangelogFile="false"/>
     <include file="classpath:db/changelog/tables/create-changeset-permission-table.xml"
+    relativeToChangelogFile="false"/>
+    <include file="classpath:db/changelog/tables/create-changeset-authorship-table.xml"
              relativeToChangelogFile="false"/>
+    <include file="classpath:db/changelog/tables/create-changeset-enrollment-table.xml"
+             relativeToChangelogFile="false"/>
+
 
 </databaseChangeLog>

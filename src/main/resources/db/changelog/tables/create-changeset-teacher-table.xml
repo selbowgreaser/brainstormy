@@ -4,16 +4,16 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
-    <changeSet id="004" author="frolov">
-        <createTable tableName="access">
-            <column name="id" type="integer" autoIncrement="true">
+    <changeSet id="002" author="frolov">
+        <createTable tableName="teacher">
+            <column name="user_id" type="integer">
                 <constraints primaryKey="true"/>
             </column>
 
-            <column name="name" type="varchar">
-                <constraints nullable="false"/>
-            </column>
+            <column name="degree" type="varchar(32)"/>
         </createTable>
+        <addForeignKeyConstraint baseTableName="teacher" baseColumnNames="user_id" constraintName="teacher_user_id_fkey"
+                                 referencedTableName="user" referencedColumnNames="id"/>
 
     </changeSet>
 </databaseChangeLog>

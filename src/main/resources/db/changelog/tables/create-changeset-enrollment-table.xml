@@ -6,19 +6,14 @@
 
     <changeSet id="008" author="frolov">
         <createTable tableName="enrollment">
-            <column name="id" type="integer" autoIncrement="true">
-                <constraints primaryKey="true"/>
-            </column>
-
-            <column name="student_id" type="int">
-                <constraints nullable="false"/>
-            </column>
-            <column name="course_id" type="int">
-                <constraints nullable="false"/>
-            </column>
+            <column name="user_id" type="integer"/>
+            <column name="course_id" type="integer"/>
         </createTable>
-        <addForeignKeyConstraint baseTableName="enrollment" baseColumnNames="student_id"
-                                 constraintName="enrollment_student_id_fkey" referencedTableName="student"
+
+        <addPrimaryKey tableName="enrollment" columnNames="user_id,course_id" constraintName="enrollment_pkey"/>
+
+        <addForeignKeyConstraint baseTableName="enrollment" baseColumnNames="user_id"
+                                 constraintName="enrollment_user_id_fkey" referencedTableName="user"
                                  referencedColumnNames="id" onDelete="CASCADE"/>
 
         <addForeignKeyConstraint baseTableName="enrollment" baseColumnNames="course_id"

@@ -22,7 +22,14 @@
             <column name="updated_at" type="timestamp">
                 <constraints nullable="false"/>
             </column>
+
+            <column name="course_id" type="integer">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
 
+        <addForeignKeyConstraint baseTableName="lesson" baseColumnNames="course_id"
+                                 constraintName="lesson_course_id_fkey" referencedTableName="course"
+                                 referencedColumnNames="id"/>
     </changeSet>
 </databaseChangeLog>
