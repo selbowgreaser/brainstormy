@@ -1,17 +1,16 @@
-package ru.frolov.distlearning.model;
+package ru.frolov.brainstormy.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
 
 @Entity
-@Table(name = "group")
+@Table(name = "accesslevel")
 @Getter
 @Setter
-public class Group {
+public class AccessLevel {
 
     @Id
     @Column(name = "id")
@@ -19,9 +18,8 @@ public class Group {
     private Integer id;
 
     @Column(name = "name")
-    @NotEmpty
     private String name;
 
-    @OneToMany(mappedBy = "group")
-    private List<Student> students;
+    @OneToMany(mappedBy = "accessLevel")
+    private List<Admin> admins;
 }

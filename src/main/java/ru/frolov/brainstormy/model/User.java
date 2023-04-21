@@ -1,4 +1,4 @@
-package ru.frolov.distlearning.model;
+package ru.frolov.brainstormy.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
