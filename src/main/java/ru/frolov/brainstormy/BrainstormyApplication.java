@@ -1,4 +1,4 @@
-package ru.frolov.distlearning;
+package ru.frolov.brainstormy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
