@@ -25,7 +25,7 @@ public class UserService {
     }
 
     public User findOne(Integer id) {
-        return userRepository.findById(id).orElseThrow(UserNotFoundException::new);
+        return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
     }
 
     public Boolean isLoginExist(String login) {
