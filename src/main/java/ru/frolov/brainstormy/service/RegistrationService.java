@@ -5,6 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.frolov.brainstormy.model.Person;
+import ru.frolov.brainstormy.model.Student;
 import ru.frolov.brainstormy.repository.UserRepository;
 
 import java.time.LocalDateTime;
@@ -26,6 +27,12 @@ public class RegistrationService {
         person.setPassword(passwordEncoder.encode(person.getPassword()));
         person.setCreatedAt(LocalDateTime.now());
         person.setUpdatedAt(LocalDateTime.now());
+
+        Student student = new Student();
+        student.setPerson(person);
+
+        person.setStudent(student);
+
         userRepository.save(person);
     }
 }
