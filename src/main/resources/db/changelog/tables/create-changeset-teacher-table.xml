@@ -6,14 +6,14 @@
 
     <changeSet id="002" author="frolov">
         <createTable tableName="teacher">
-            <column name="user_id" type="integer">
+            <column name="person_id" type="integer">
                 <constraints primaryKey="true"/>
             </column>
 
             <column name="degree" type="varchar(32)"/>
         </createTable>
-        <addForeignKeyConstraint baseTableName="teacher" baseColumnNames="user_id" constraintName="teacher_user_id_fkey"
-                                 referencedTableName="user" referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="teacher" baseColumnNames="person_id" constraintName="teacher_person_id_fkey"
+                                 referencedTableName="person" referencedColumnNames="id"/>
 
     </changeSet>
 </databaseChangeLog>

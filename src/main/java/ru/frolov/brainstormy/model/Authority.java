@@ -24,6 +24,6 @@ public class Authority {
     @JoinTable(
             name = "permission",
             joinColumns = @JoinColumn(name = "authority_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private List<User> users;
+            inverseJoinColumns = @JoinColumn(name = "person_id"))
+    private List<Person> people;
 }

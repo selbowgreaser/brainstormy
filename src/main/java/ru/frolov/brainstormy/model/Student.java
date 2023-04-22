@@ -12,8 +12,8 @@ public class Student {
 
     @Id
     @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    private Person person;
 
     @ManyToOne
     @JoinColumn(name = "group_id", referencedColumnName = "id")

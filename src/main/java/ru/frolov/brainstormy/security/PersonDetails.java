@@ -1,16 +1,16 @@
 package ru.frolov.brainstormy.security;
 
 import org.springframework.security.core.GrantedAuthority;
-import ru.frolov.brainstormy.model.User;
+import ru.frolov.brainstormy.model.Person;
 
 import java.util.Collection;
 
-public class UserDetails implements org.springframework.security.core.userdetails.UserDetails {
+public class PersonDetails implements org.springframework.security.core.userdetails.UserDetails {
 
-    private final User user;
+    private final Person person;
 
-    public UserDetails(User user) {
-        this.user = user;
+    public PersonDetails(Person person) {
+        this.person = person;
     }
 
     @Override
@@ -20,12 +20,12 @@ public class UserDetails implements org.springframework.security.core.userdetail
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return person.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return user.getLogin();
+        return person.getLogin();
     }
 
     @Override
@@ -48,7 +48,7 @@ public class UserDetails implements org.springframework.security.core.userdetail
         return true;
     }
 
-    public User getUser() {
-        return user;
+    public Person getPerson() {
+        return person;
     }
 }

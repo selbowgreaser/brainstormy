@@ -2,16 +2,16 @@ package ru.frolov.brainstormy.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.frolov.brainstormy.model.User;
+import ru.frolov.brainstormy.model.Person;
 
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<Person, Integer> {
 
-    Optional<User> findByLogin(String login);
+    Optional<Person> findByLogin(String login);
 
-    Optional<User> findByEmail(String email);
+    Optional<Person> findByEmail(String email);
 
-    Optional<User> findByPhone(Integer phone);
+    Optional<Person> findByPhone(String phone);
 }

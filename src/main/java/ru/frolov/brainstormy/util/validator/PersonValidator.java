@@ -5,17 +5,17 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
-import ru.frolov.brainstormy.model.User;
-import ru.frolov.brainstormy.service.UserService;
+import ru.frolov.brainstormy.model.Person;
+import ru.frolov.brainstormy.service.PersonService;
 
 @Component
-public class UserValidator implements Validator {
+public class PersonValidator implements Validator {
 
-    private final UserService userService;
+    private final PersonService personService;
 
     @Autowired
-    public UserValidator(UserService userService) {
-        this.userService = userService;
+    public PersonValidator(PersonService personService) {
+        this.personService = personService;
     }
 
     @Override
@@ -25,13 +25,13 @@ public class UserValidator implements Validator {
 
     @Override
     public void validate(@NonNull Object target, @NonNull Errors errors) {
-        User user = (User) target;
+        Person person = (Person) target;
 
-        if (userService.isLoginExist(user.getLogin())) {
+        if (personService.isLoginExist(person.getLogin())) {
             errors.rejectValue("login", "", "Человек с таким именем пользователя уже существует!");
-        } else if (userService.isEmailExist(user.getEmail())) {
+        } else if (personService.isEmailExist(person.getEmail())) {
             errors.rejectValue("email", "", "Человек с такой электронной почтой уже существует!");
-        } else if (userService.isPhoneExist(user.getPhone())) {
+        } else if (personService.isPhoneExist(person.getPhone())) {
             errors.rejectValue("phone", "", "Человек с таким номером телефона уже существует!");
         }
     }

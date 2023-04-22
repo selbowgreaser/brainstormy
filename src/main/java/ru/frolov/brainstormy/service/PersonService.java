@@ -3,29 +3,29 @@ package ru.frolov.brainstormy.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.frolov.brainstormy.model.User;
+import ru.frolov.brainstormy.model.Person;
 import ru.frolov.brainstormy.repository.UserRepository;
-import ru.frolov.brainstormy.util.exception.UserNotFoundException;
+import ru.frolov.brainstormy.util.exception.PersonNotFoundException;
 
 import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
-public class UserService {
+public class PersonService {
 
     private final UserRepository userRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public PersonService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    public List<User> findAll() {
+    public List<Person> findAll() {
         return userRepository.findAll();
     }
 
-    public User findOne(Integer id) {
-        return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
+    public Person findOne(Integer id) {
+        return userRepository.findById(id).orElseThrow(() -> new PersonNotFoundException(id));
     }
 
     public Boolean isLoginExist(String login) {
@@ -36,7 +36,7 @@ public class UserService {
         return userRepository.findByEmail(email).isPresent();
     }
 
-    public Boolean isPhoneExist(Integer phone) {
+    public Boolean isPhoneExist(String phone) {
         return userRepository.findByPhone(phone).isPresent();
     }
 

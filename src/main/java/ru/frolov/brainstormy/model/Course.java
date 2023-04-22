@@ -39,15 +39,15 @@ public class Course {
     @JoinTable(
             name = "enrollment",
             joinColumns = @JoinColumn(name = "course_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
+            inverseJoinColumns = @JoinColumn(name = "person_id")
     )
-    private List<User> students;
+    private List<Person> students;
 
     @ManyToMany
     @JoinTable(
             name = "authorship",
             joinColumns = @JoinColumn(name = "course_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
+            inverseJoinColumns = @JoinColumn(name = "person_id")
     )
-    private List<User> authors;
+    private List<Person> authors;
 }

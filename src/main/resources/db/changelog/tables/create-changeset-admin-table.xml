@@ -6,7 +6,7 @@
 
     <changeSet id="012" author="frolov">
         <createTable tableName="admin">
-            <column name="user_id" type="integer">
+            <column name="person_id" type="integer">
                 <constraints primaryKey="true"/>
             </column>
 
@@ -17,8 +17,8 @@
         <addForeignKeyConstraint baseTableName="admin" baseColumnNames="access_level_id"
                                  constraintName="admin_accesslevel_id_fkey" referencedTableName="accesslevel"
                                  referencedColumnNames="id" onDelete="RESTRICT"/>
-        <addForeignKeyConstraint baseTableName="admin" baseColumnNames="user_id"
-                                 constraintName="admin_user_id_fkey" referencedTableName="user"
+        <addForeignKeyConstraint baseTableName="admin" baseColumnNames="person_id"
+                                 constraintName="admin_person_id_fkey" referencedTableName="person"
                                  referencedColumnNames="id" onDelete="CASCADE"/>
     </changeSet>
 </databaseChangeLog>

@@ -5,7 +5,7 @@
                    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <changeSet id="001" author="frolov">
-        <createTable tableName="user">
+        <createTable tableName="person">
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" />
             </column>
@@ -27,7 +27,7 @@
             <column name="email" type="varchar(64)">
                 <constraints nullable="false"/>
             </column>
-            <column name="phone" type="int"/>
+            <column name="phone" type="varchar(11)"/>
             <column name="birthday" type="date">
                 <constraints nullable="false"/>
             </column>

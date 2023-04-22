@@ -6,14 +6,14 @@
 
     <changeSet id="006" author="frolov">
         <createTable tableName="authorship">
-            <column name="user_id" type="integer"/>
+            <column name="person_id" type="integer"/>
             <column name="course_id" type="integer"/>
         </createTable>
 
-        <addPrimaryKey tableName="authorship" columnNames="user_id,course_id" constraintName="authorship_pkey"/>
+        <addPrimaryKey tableName="authorship" columnNames="person_id,course_id" constraintName="authorship_pkey"/>
 
-        <addForeignKeyConstraint baseTableName="authorship" baseColumnNames="user_id"
-                                 constraintName="authorship_user_id_fkey" referencedTableName="user"
+        <addForeignKeyConstraint baseTableName="authorship" baseColumnNames="person_id"
+                                 constraintName="authorship_person_id_fkey" referencedTableName="person"
                                  referencedColumnNames="id" onDelete="CASCADE"/>
 
         <addForeignKeyConstraint baseTableName="authorship" baseColumnNames="course_id"

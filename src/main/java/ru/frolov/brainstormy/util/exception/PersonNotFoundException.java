@@ -5,11 +5,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserNotFoundException extends RuntimeException {
+public class PersonNotFoundException extends RuntimeException {
 
     private Integer userId;
 
-    public UserNotFoundException(Integer userId) {
+    public PersonNotFoundException(Integer userId) {
         this.userId = userId;
     }
 }

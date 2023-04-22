@@ -12,8 +12,8 @@ public class Teacher {
 
     @Id
     @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    private Person person;
 
     @Column(name = "degree")
     private String degree;

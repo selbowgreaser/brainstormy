@@ -12,8 +12,8 @@ public class Admin {
 
     @Id
     @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    private Person person;
 
     @ManyToOne
     @JoinColumn(name = "access_level_id", referencedColumnName = "id")

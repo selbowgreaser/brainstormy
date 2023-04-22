@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.frolov.brainstormy.model.User;
+import ru.frolov.brainstormy.model.Person;
 import ru.frolov.brainstormy.repository.UserRepository;
 
 import java.time.LocalDateTime;
@@ -22,10 +22,10 @@ public class RegistrationService {
     }
 
     @Transactional
-    public void register(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setCreatedAt(LocalDateTime.now());
-        user.setUpdatedAt(LocalDateTime.now());
-        userRepository.save(user);
+    public void register(Person person) {
+        person.setPassword(passwordEncoder.encode(person.getPassword()));
+        person.setCreatedAt(LocalDateTime.now());
+        person.setUpdatedAt(LocalDateTime.now());
+        userRepository.save(person);
     }
 }

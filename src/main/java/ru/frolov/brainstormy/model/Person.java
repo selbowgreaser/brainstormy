@@ -13,8 +13,8 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "person")
+public class Person {
 
     private static final String BIRTHDAY_FORMAT = "dd.MM.yyyy";
     private static final String BIRTHDAY_ERROR_MESSAGE = "Дата рождения не должна быть в будущем";
@@ -53,7 +53,7 @@ public class User {
     private String email;
 
     @Column(name = "phone")
-    private Integer phone;
+    private String phone;
 
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = BIRTHDAY_FORMAT)
@@ -70,16 +70,16 @@ public class User {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "person")
     private Student student;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "person")
     private Teacher teacher;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "person")
     private Admin admin;
 
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany(mappedBy = "people")
     private List<Authority> authorities;
 
     @ManyToMany(mappedBy = "students")

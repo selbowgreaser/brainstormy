@@ -11,7 +11,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-public class UserRegistrationDto {
+public class PersonRegistrationDto {
 
     private static final String BIRTHDAY_FORMAT = "dd.MM.yyyy";
     private static final String BIRTHDAY_ERROR_MESSAGE = "Дата рождения не должна быть в будущем";
@@ -38,7 +38,7 @@ public class UserRegistrationDto {
     @Email
     private String email;
 
-    private Integer phone;
+    private Long phone;
 
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = BIRTHDAY_FORMAT)
