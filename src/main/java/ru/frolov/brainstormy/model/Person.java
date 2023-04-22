@@ -70,7 +70,7 @@ public class Person {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @OneToOne(mappedBy = "person")
+    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
     private Student student;
 
     @OneToOne(mappedBy = "person")
