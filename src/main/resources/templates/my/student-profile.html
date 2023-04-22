@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center mb-4">User Profile</h1>
+      <table class="table table-bordered">
+        <tbody>
+        <tr>
+          <th>Login</th>
+          <td th:text="${studentProfileDto.getLogin()}"></td>
+        </tr>
+        <tr>
+          <th>Surname</th>
+          <td th:text="${studentProfileDto.getSurname()}"></td>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <td th:text="${studentProfileDto.getName()}"></td>
+        </tr>
+        <tr th:if="${studentProfileDto.getPatronymic() != null or studentProfileDto.getPatronymic().isEmpty()}">
+          <th>Patronymic</th>
+          <td th:text="${studentProfileDto.getPatronymic()}"></td>
+        </tr>
+        <tr>
+          <th>Email</th>
+          <td th:text="${studentProfileDto.getEmail()}"></td>
+        </tr>
+        <tr th:if="${studentProfileDto.getPhone() != null or studentProfileDto.getPhone().isEmpty()}">
+          <th>Phone</th>
+          <td th:text="${studentProfileDto.getPhone()}"></td>
+        </tr>
+        <tr>
+          <th>Birthday</th>
+          <td th:text="${#temporals.format(studentProfileDto.getBirthday(), 'dd.MM.yyyy')}"></td>
+        </tr>
+        <tr th:if="${studentProfileDto.getStudent().getGroup() != null}">
+          <th>Group</th>
+          <td th:text="${studentProfileDto.getStudent().getGroup().getName()}"></td>
+        </tr>
+        <tr>
+          <th>Created At</th>
+          <td th:text="${#temporals.format(studentProfileDto.getCreatedAt(), 'dd.MM.yyyy')}"></td>
+        </tr>
+        <tr>
+          <th>Selected Courses</th>
+          <td>
+            <ul th:if="${!#lists.isEmpty(studentProfileDto.getSelectedCourses())}">
+              <li th:each="course : ${studentProfileDto.getSelectedCourses()}" th:text="${course.getTitle()}"></li>
+            </ul>
+            <p th:if="${#lists.isEmpty(studentProfileDto.getSelectedCourses())}">No courses selected</p>
+          </td>
+        </tr>
+        <tr>
+          <th>Created Courses</th>
+          <td>
+            <ul th:if="${!#lists.isEmpty(studentProfileDto.getCreatedCourses())}">
+              <li th:each="course : ${studentProfileDto.getCreatedCourses()}" th:text="${course.getTitle()}"></li>
+            </ul>
+            <p th:if="${#lists.isEmpty(studentProfileDto.getCreatedCourses())}">No courses created</p>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>
