@@ -1,9 +1,11 @@
 package ru.frolov.brainstormy.security;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import ru.frolov.brainstormy.model.Person;
 
 import java.util.Collection;
+import java.util.Collections;
 
 public class PersonDetails implements org.springframework.security.core.userdetails.UserDetails {
 
@@ -15,7 +17,7 @@ public class PersonDetails implements org.springframework.security.core.userdeta
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     @Override

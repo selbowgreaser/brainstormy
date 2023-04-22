@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import ru.frolov.brainstormy.dto.PersonLoginDto;
 import ru.frolov.brainstormy.dto.PersonRegistrationDto;
 import ru.frolov.brainstormy.model.Person;
 import ru.frolov.brainstormy.service.RegistrationService;
@@ -42,8 +43,13 @@ public class AuthController {
         return "redirect:/auth/login";
     }
 
+    @GetMapping("/login")
+    public String loginPage(@ModelAttribute("personLoginDto") PersonLoginDto personLoginDto) {
+        return "auth/login";
+    }
+
     @ExceptionHandler(PersonNotFoundException.class)
-    private String handlepersonNotFoundException(PersonNotFoundException personNotFoundException, Model model) {
+    private String handlePersonNotFoundException(PersonNotFoundException personNotFoundException, Model model) {
         model.addAttribute("exception", personNotFoundException);
 
         return "person-not-found";
