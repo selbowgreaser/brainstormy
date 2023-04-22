@@ -16,7 +16,7 @@
                                  constraintName="student_person_id_fkey" referencedTableName="person"
                                  referencedColumnNames="id" onDelete="CASCADE"/>
         <addForeignKeyConstraint baseTableName="student" baseColumnNames="group_id"
-                                 constraintName="student_group_id_fkey" referencedTableName="group"
+                                 constraintName="student_group_id_fkey" referencedTableName="groups"
                                  referencedColumnNames="id" onDelete="SET NULL"/>
     </changeSet>
 </databaseChangeLog>
