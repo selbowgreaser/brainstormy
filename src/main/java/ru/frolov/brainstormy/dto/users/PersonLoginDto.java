@@ -1,4 +1,4 @@
-package ru.frolov.brainstormy.dto;
+package ru.frolov.brainstormy.dto.users;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
