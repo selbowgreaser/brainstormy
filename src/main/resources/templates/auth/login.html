@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Login Form</title>
+    <title>Вход</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
@@ -11,19 +11,22 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <h2>Login Form</h2>
+            <h2>Вход</h2>
             <form th:action="@{/login}" method="post">
                 <div class="form-group">
-                    <label for="username">Login</label>
+                    <label for="username">Имя пользователя</label>
                     <input type="text" class="form-control" id="username" name="username" minlength="3" maxlength="32"
-                           placeholder="Enter your login" required autofocus>
+                           placeholder="Введите Ваше имя пользователя" required autofocus>
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
+                    <label for="password">Пароль</label>
                     <input type="password" class="form-control" id="password" name="password" minlength="8" maxlength="32"
-                           placeholder="Enter your password" required>
+                           placeholder="Введите Ваш пароль" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="text-center">
+                    <p>У вас еще нет аккаунта? <a href="/auth/registration">Зарегистрируйтесь</a></p>
+                </div>
             </form>
         </div>
     </div>
