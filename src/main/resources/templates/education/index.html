@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Обучение</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" xmlns:sec="http://www.w3.org/1999/xhtml">
+  <div class="container">
+    <a class="navbar-brand font-weight-bold" href="#">BRAINSTORMY</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/my/profile}">Мой профиль</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" th:href="@{/education}">Обучение</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/courses}">Каталог курсов</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/course-management}">Мои курсы</a>
+        </li>
+        <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+          <a class="nav-link" th:href="@{/admin}">Администрирование</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <form id="logout" th:action="@{/logout}" method="post" style="display:none;">
+          </form>
+          <a class="nav-link cursor-pointer" style="cursor: pointer;" onclick='document.getElementById("logout").submit();'>Выход</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h1 class="mt-5">Обучение</h1>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Название курса</th>
+      <th>Авторы курса</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="course : ${selectedCourses}">
+      <td th:text="${course.getTitle()}"></td>
+      <td>
+        <p th:each="author : ${course.getAuthors()}" th:text="${author.getName() + ' ' + author.getSurname()}"></p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+</html>
