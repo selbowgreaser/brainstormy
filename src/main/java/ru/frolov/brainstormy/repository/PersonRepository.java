@@ -7,7 +7,7 @@ import ru.frolov.brainstormy.model.Person;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<Person, Integer> {
+public interface PersonRepository extends JpaRepository<Person, Integer> {
 
     Optional<Person> findByLogin(String login);
 

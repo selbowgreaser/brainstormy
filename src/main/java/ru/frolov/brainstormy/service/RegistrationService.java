@@ -6,19 +6,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.frolov.brainstormy.model.Person;
 import ru.frolov.brainstormy.model.Student;
-import ru.frolov.brainstormy.repository.UserRepository;
+import ru.frolov.brainstormy.repository.PersonRepository;
 
 import java.time.LocalDateTime;
 
 @Service
 public class RegistrationService {
 
-    private final UserRepository userRepository;
+    private final PersonRepository personRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
-    public RegistrationService(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
+    public RegistrationService(PersonRepository personRepository, BCryptPasswordEncoder passwordEncoder) {
+        this.personRepository = personRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -33,6 +33,6 @@ public class RegistrationService {
 
         person.setStudent(student);
 
-        userRepository.save(person);
+        personRepository.save(person);
     }
 }
