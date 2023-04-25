@@ -1,4 +1,4 @@
-package ru.frolov.brainstormy.dto;
+package ru.frolov.brainstormy.dto.courses;
 
 import lombok.Getter;
 import lombok.Setter;
